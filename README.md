@@ -1,6 +1,12 @@
 # ATP_pulse_analysis
 
-Disclaimer: most of these functions were written for a single purpose rather than to be widely applicable. Therefore in some cases they require a specific file structure/layout
+Disclaimer: most of these functions were written for a single purpose rather than to be widely applicable. Therefore in some cases they require a specific file structure/layout and may need minor modifications to be applied to other projects.
+
+These macros and scripts were first writteen for  
+Human iPSC-derived Down syndrome astrocytes display genome-wide perturbations in gene expression, an altered adhesion profile, and increased cellular dynamics, Human Molecular Genetics, Volume 29, Issue 5, 1 March 2020  
+Blandine Ponroy Bally,  W Todd Farmer,  Emma V Jones,  Selin Jessa, J Benjamin Kacerovsky,  Alexandre Mayran,  Huashan Peng,  Julie L Lefebvre, Jacques Drouin,  Arnold Hayer,  Carl Ernst,  Keith K Murai
+
+Versions in this repo may contain changes, modifications and bug fixes since the original publication. For scripts as used for the publication see [Ponroy2020_HMG/ATP_pulse_analysis/](https://github.com/murailab/Ponroy2020_HMG/tree/master/ATP_pulse_analysis)
  
 open_save_n_channels.ijm re-saves all image files (with user specified file ending) in a folder as .tif images into a specified directory
 
