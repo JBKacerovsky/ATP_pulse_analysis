@@ -18,10 +18,10 @@ macro "cell ROI time analysis" {
 				choice=Dialog.getRadioButton;
 					
 								if (choice=="ROI"){
-										Dialog.create("Select SD folders:");
-										Dialog.addMessage("select SD folder");
-										Dialog.show();
-										SD_tif = getDirectory("Select Directory"); 
+			//							Dialog.create("Select SD folders:");		// this originally assumed that there was a folder containing projection images for every stack
+			//							Dialog.addMessage("select SD folder");		// ultimately that approach prooved to rigid and unpractical
+			//							Dialog.show();								
+			//							SD_tif = getDirectory("Select Directory"); 
 										setKeyDown("none");
 										
 										list=getFileList(input);
@@ -32,8 +32,10 @@ macro "cell ROI time analysis" {
 													roiManager("reset")
 													open(image);
 													title=File.nameWithoutExtension;
-													SD=SD_tif+title+"_SD_.tif";
-													open(SD);
+			//										SD=SD_tif+title+"_SD_.tif";
+			//										open(SD);
+													run("Z Project...", "projection=[Standard Deviation]");
+													rename("SD");					// instead the SD projection is generated from the input
 													run("Tile");
 													waitForUser("add ROIs \n also this is the time to make any necessary corrections \n CHANGES NEED TO BE SAVED MANUALLY \n hold down shift to skip image");
 													if (isKeyDown("shift")) {
@@ -45,6 +47,7 @@ macro "cell ROI time analysis" {
 															
 													}
 													else {
+														selectWindow("SD")
 														roiManager("Save", input+title+"_ROI.zip");
 														roiManager("show all with labels");
 														run("Flatten");
